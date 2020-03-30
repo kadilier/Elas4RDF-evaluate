@@ -1,0 +1,5 @@
+Model/Qrel.class
+Model/Result.class
+Request/RestRequest.class
+Evaluator.class
+Model/Query.class

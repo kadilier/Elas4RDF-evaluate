@@ -1,0 +1,50 @@
+http://localhost:8080/elas4rdf_rest/?query=B+F+Skinner&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-2 0.43479148
+http://localhost:8080/elas4rdf_rest/?query=44+magnum+hunting&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-1 0.3142595
+http://localhost:8080/elas4rdf_rest/?query=butte+montana&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-17 0.5593184
+http://localhost:8080/elas4rdf_rest/?query=brooklyn+bridge&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-16 0.77486795
+http://localhost:8080/elas4rdf_rest/?query=carl+lewis&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-19 0.7959761
+http://localhost:8080/elas4rdf_rest/?query=canasta+cards&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-18 0.96342176
+http://localhost:8080/elas4rdf_rest/?query=carolina&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-20 0.16995934
+http://localhost:8080/elas4rdf_rest/?query=airsoft+glock&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-7 0.8501064
+http://localhost:8080/elas4rdf_rest/?query=austin+powers&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-11 0.7188221
+http://localhost:8080/elas4rdf_rest/?query=city+of+charlotte&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-22 0.57739407
+http://localhost:8080/elas4rdf_rest/?query=american+embassy+nairobi&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-9 0.8807824
+http://localhost:8080/elas4rdf_rest/?query=asheville+north+carolina&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-10 0.44112533
+http://localhost:8080/elas4rdf_rest/?query=charles+darwin&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-21 0.84460706
+http://localhost:8080/elas4rdf_rest/?query=NAACP+Image+Awards&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-4 0.86349
+http://localhost:8080/elas4rdf_rest/?query=banana+paper+making&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-13 1.0
+http://localhost:8080/elas4rdf_rest/?query=coastal+carolina&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-24 0.6715042
+http://localhost:8080/elas4rdf_rest/?query=Bookwork&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-3 0.7841803
+http://localhost:8080/elas4rdf_rest/?query=austin+texas&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-12 0.3190844
+http://localhost:8080/elas4rdf_rest/?query=city+of+virginia+beach&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-23 0.4393311
+http://localhost:8080/elas4rdf_rest/?query=air+wisconsin&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-6 0.77294457
+http://localhost:8080/elas4rdf_rest/?query=bradley+center&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-15 0.9197208
+http://localhost:8080/elas4rdf_rest/?query=Scott+County&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-5 0.68569684
+http://localhost:8080/elas4rdf_rest/?query=ben+franklin&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-14 0.81036
+http://localhost:8080/elas4rdf_rest/?query=david+suchet&id=dbpedia&type=entities&size=1000&aggregationPenalty=false
+Q:SemSearch_ES-25 0.8405256
+
+AVG: 0.6846779100596905

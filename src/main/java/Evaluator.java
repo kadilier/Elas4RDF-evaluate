@@ -19,10 +19,13 @@ public class Evaluator {
     public Map<String, Qrel> qrelsMap;
     public Map<String, Result> resultsMap;
     public Map<String, Float> ndcgResMap;
+    public Map<String, Float> queryTimesMap;
 
     public String queryCategory;
     public String datasetId;
     public int responseSize;
+    public boolean aggregationPenalty;
+    public float aggregationFactor;
 
     public static void main(String[] args) throws IOException, ParseException {
 
@@ -32,39 +35,55 @@ public class Evaluator {
         evaluator.qrelsMap = new HashMap<>();
         evaluator.resultsMap = new HashMap<>();
         evaluator.ndcgResMap = new HashMap<>();
+        evaluator.queryTimesMap = new HashMap<>();
 
-        evaluator.queryCategory = "SemSearch_ES";
         evaluator.datasetId = "dbpedia";
-        evaluator.responseSize = 500;
+        evaluator.queryCategory = args[1];
+        evaluator.responseSize = Integer.parseInt(args[2]);
+        evaluator.aggregationPenalty = Boolean.parseBoolean(args[3]);
+        evaluator.aggregationFactor = Float.parseFloat(args[4]);
 
         /* initialize a Rest request & load queries and qrels */
-        RestRequest restRequest = new RestRequest("139.91.183.46", "8080/elas4rdf_rest/");
-        evaluator.readQueries("queries-v2_stopped.txt");
-        evaluator.readQrels("qrels-v2.txt");
+        RestRequest restRequest = new RestRequest("localhost", "8080/elas4rdf_rest/");
+        evaluator.readQueries(args[0]);
+        evaluator.readQrels("/home/kadilier/Elas4RDF-evaluate/src/main/resources/qrels-v2.txt");
 
         /* perform requests & store results */
-        for (String queryId : evaluator.qrelsMap.keySet()) {
+        for (String queryId : evaluator.queriesMap.keySet()) {
             String queryText = evaluator.queriesMap.get(queryId).getQueryText();
             Result result = new Result(queryId);
 
-            String jsonResponse = restRequest.getJsonQueryResults(queryText, evaluator.datasetId, "entities", evaluator.responseSize);
+            long q_start = System.currentTimeMillis();
+
+            String jsonResponse = restRequest.getJsonQueryResults(queryText, evaluator.datasetId, "entities", evaluator.responseSize, evaluator.aggregationPenalty, evaluator.aggregationFactor);
             result.setJsonResponse(jsonResponse);
             result.parseEntities();
             evaluator.resultsMap.put(queryId, result);
 
+            long q_end = System.currentTimeMillis() - q_start;
 
             float idcg = evaluator.calculateIdcg(evaluator.qrelsMap.get(queryId), 100);
             float dcg = evaluator.calculateDcg(queryId, 100);
             float ndcg = dcg / idcg;
 
+            if (idcg == 0){
+                System.out.println("IDCG NULL : " + queryId);
+            	continue;
+            }
+
+            System.out.println("Q:" + queryId + " " + ndcg);
+
             evaluator.ndcgResMap.put(queryId, ndcg);
-
-            System.out.println("#### RESULTS ####");
-            System.out.println("ndcg: " + ndcg);
-
+            evaluator.queryTimesMap.put(queryId, q_end/1000F);
 
         }
 
+        double average_ndcg = evaluator.ndcgResMap.values().stream().mapToDouble(Float::floatValue).average().orElse(0);
+        double average_time = evaluator.queryTimesMap.values().stream().mapToDouble(Float::floatValue).average().orElse(0);
+
+        System.out.println();
+        System.out.println("ndcg: " + average_ndcg);
+        System.out.println("time: " + average_time);
 
     }
 
@@ -134,6 +153,11 @@ public class Evaluator {
         float idcg = 0;
         int i = 1;
 
+
+        if(qrel.getResources() == null){
+        	return 0;
+        }
+
         /* sort resources (descending order) */
         qrel.sortResources();
 
@@ -174,6 +198,8 @@ public class Evaluator {
                     rel_n++;
                 }
                 dcg += (Math.pow(2, jdg_i) - 1) / (Math.log(jdg_n + 1) / Math.log(2));
+//                System.out.println(resource + " : " + dcg + " jdg_i " + jdg_i + " jdg_n " + jdg_n);
+
                 jdg_n++;
             }
             i++;

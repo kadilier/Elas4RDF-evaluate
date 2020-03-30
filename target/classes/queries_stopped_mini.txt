@@ -1,0 +1,91 @@
+SemSearch_ES-1	44 magnum hunting
+SemSearch_ES-2	B F Skinner
+SemSearch_ES-3	Bookwork
+SemSearch_ES-4	NAACP Image Awards
+SemSearch_ES-5	Scott County
+SemSearch_ES-6	air wisconsin
+SemSearch_ES-7	airsoft glock
+SemSearch_ES-9	american embassy nairobi
+SemSearch_ES-10	asheville north carolina
+SemSearch_ES-11	austin powers
+SemSearch_ES-12	austin texas
+SemSearch_ES-13	banana paper making
+SemSearch_ES-14	ben franklin
+SemSearch_ES-15	bradley center
+SemSearch_ES-16	brooklyn bridge
+SemSearch_ES-17	butte montana
+SemSearch_ES-18	canasta cards
+SemSearch_ES-19	carl lewis
+SemSearch_ES-20	carolina
+SemSearch_ES-21	charles darwin
+SemSearch_ES-22	city of charlotte
+SemSearch_ES-23	city of virginia beach
+SemSearch_ES-24	coastal carolina
+SemSearch_ES-25	david suchet
+INEX_LD-2012323	Large glaciers island nation Langjokull Hofsjokull Vatnajokull
+INEX_LD-2012325	successor James G Blaine studied law
+INEX_LD-2012327	Beloved author African American Nobel Prize Literature
+INEX_LD-2012329	Sweden Iceland currency
+INEX_LD-2012331	Seoul Korea river name ethnic group China
+INEX_LD-2012333	Prime minister Canada nicknamed Silver Tongued Laurier longest unbroken term
+INEX_LD-2012335	US president authorise nuclear weapons against Japan
+INEX_LD-2012336	1906 territory Papua island Australian
+INEX_LD-2012337	Texas city Baylor University tornado 1953
+INEX_LD-2012339	Nelson Mandela John Dube
+INEX_LD-2012341	1997  Houston airport president
+INEX_LD-2009111	europe solar power facility
+INEX_LD-2009115	virtual museums
+INEX_LD-2010004	Indian food
+INEX_LD-2010014	composer museum
+INEX_LD-2010019	gallo roman architecture in paris
+INEX_LD-2010020	electricity source in France
+INEX_LD-2010037	social network API
+INEX_LD-2010043	List of films from the surrealist category
+INEX_LD-2010057	Einstein Relativity theory
+INEX_LD-2010069	summer flowers
+INEX_LD-2010100	house concrete wood
+QALD2_te-9	a list of all trumpet players that were bandleaders
+QALD2_te-11	is the Formula 1 race driver with the most races
+QALD2_te-12	all world heritage sites designated within the past five years
+QALD2_te-13	is the youngest player in the Premier League
+QALD2_te-14	all members of Prodigy
+QALD2_te-15	is the longest river
+QALD2_te-17	all cars that are produced in Germany
+QALD2_te-19	all people that were born in Vienna and died in Berlin
+QALD2_te-21	is the capital of Canada
+QALD2_te-22	is the governor of Texas
+QALD2_te-24	was the father of Queen Elizabeth II
+QALD2_tr-79	airports are located in California USA
+QALD2_tr-80	all Canadian Grunge record labels
+QALD2_tr-81	country has the most official languages
+QALD2_tr-82	In programming language is GIMP written
+QALD2_tr-83	produced films starring Natalie Portman
+QALD2_tr-84	all movies with Tom Cruise
+QALD2_tr-85	In films did Julia Roberts as well as Richard Gere play
+QALD2_tr-86	all female German chancellors
+QALD2_tr-87	wrote the book The pillars of the Earth
+QALD2_tr-89	all soccer clubs in the Premier League
+QALD2_tr-91	organizations were founded in 1950
+NEX_XER-91	Paul Auster novels
+INEX_XER-94	Hybrid cars sold in Europe
+INEX_XER-95	Tom Hanks movies he plays a leading role
+INEX_XER-96	Pure object oriented programing languages
+INEX_XER-97	Compilers that can compile both C and C++
+INEX_XER-98	Makers of lawn tennis rackets
+INEX_XER-99	Computer systems that have a recursive acronym for the name
+INEX_XER-100	Operating systems to Steve Jobs related
+INEX_XER-106	Noble english person from the Hundred Years War
+INEX_XER-108	State capitals of the United States of America
+INEX_XER-109	National capitals situated on islands
+TREC_Entity-7	Airlines that currently use Boeing 747 planes
+TREC_Entity-9	Members of The Beaux Arts Trio
+TREC_Entity-10	Campuses of Indiana University
+TREC_Entity-11	Donors to the Home Depot Foundation
+TREC_Entity-12	Airlines that Air Canada has code share flights with
+TREC_Entity-14	Authors awarded an Anthony Award at Bouchercon in 2007
+TREC_Entity-15	Universities that are members of the SEC conference for football
+TREC_Entity-16	Sponsors of the Mancuso quilt festivals
+TREC_Entity-17	Chefs with a show on the Food Network
+TREC_Entity-18	Members of the band Jefferson Airplane
+TREC_Entity-19	Companies that John Hennessey serves on the board of
+TREC_Entity-20	Scotch whisky distilleries on the island of Islay

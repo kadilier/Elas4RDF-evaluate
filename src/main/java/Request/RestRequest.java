@@ -27,10 +27,11 @@ public class RestRequest {
         this.url = "http://" + host + ":" + port;
     }
 
-    public String getJsonQueryResults(String query, String datasetId, String type, int size) throws UnsupportedEncodingException {
+    public String getJsonQueryResults(String query, String datasetId, String type, int size, boolean aggregationPenalty, float aggregationFactor) throws UnsupportedEncodingException {
 
         /* Initiate a new GET request */
-        HttpGet request = new HttpGet(url + "?query=" + URLEncoder.encode(query, "UTF-8") + "&id=" + datasetId + "&type=" + type + "&size=" + size);
+        HttpGet request = new HttpGet(url + "?query=" + URLEncoder.encode(query, "UTF-8") + "&id=" + datasetId + "&type=" + type + "&size=" + size + "&aggregationPenalty=" + aggregationPenalty +
+	"&aggregationFactor=" + aggregationFactor);
         request.addHeader("Content-Type", "application/json; charset=utf-8");
 
         System.out.println(request.getURI());
