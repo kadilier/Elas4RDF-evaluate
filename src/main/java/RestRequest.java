@@ -1,5 +1,3 @@
-package Request;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -27,11 +25,11 @@ public class RestRequest {
         this.url = "http://" + host + ":" + port;
     }
 
-    public String getJsonQueryResults(String query, String datasetId, String type, int size, boolean aggregationPenalty, float aggregationFactor) throws UnsupportedEncodingException {
+    public String getJsonQueryResults(String query, String datasetId, Evaluator evaluator) throws UnsupportedEncodingException {
 
         /* Initiate a new GET request */
-        HttpGet request = new HttpGet(url + "?query=" + URLEncoder.encode(query, "UTF-8") + "&id=" + datasetId + "&type=" + type + "&size=" + size + "&aggregationPenalty=" + aggregationPenalty +
-	"&aggregationFactor=" + aggregationFactor);
+        HttpGet request = new HttpGet(url + "?query=" + URLEncoder.encode(query, "UTF-8") + "&id=" + datasetId + "&type=entities" + "&size=" + evaluator.responseSize + "&aggregationPenalty=" + evaluator.aggregationPenalty +
+                "&aggregationFactor=" + evaluator.aggregationFactor + "&aggregationVersion=" + evaluator.aggregationVersion);
         request.addHeader("Content-Type", "application/json; charset=utf-8");
 
         System.out.println(request.getURI());

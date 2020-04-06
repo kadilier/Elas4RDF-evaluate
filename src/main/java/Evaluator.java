@@ -1,9 +1,7 @@
 import Model.Qrel;
 import Model.Query;
 import Model.Result;
-import Request.RestRequest;
 import org.json.simple.parser.ParseException;
-import sun.reflect.generics.tree.Tree;
 
 import java.io.*;
 import java.util.*;
@@ -26,6 +24,7 @@ public class Evaluator {
     public int responseSize;
     public boolean aggregationPenalty;
     public float aggregationFactor;
+    public int aggregationVersion;
 
     public static void main(String[] args) throws IOException, ParseException {
 
@@ -42,11 +41,12 @@ public class Evaluator {
         evaluator.responseSize = Integer.parseInt(args[2]);
         evaluator.aggregationPenalty = Boolean.parseBoolean(args[3]);
         evaluator.aggregationFactor = Float.parseFloat(args[4]);
+        evaluator.aggregationVersion = Integer.parseInt(args[5]);
 
         /* initialize a Rest request & load queries and qrels */
-        RestRequest restRequest = new RestRequest("localhost", "8080/elas4rdf_rest/");
+        RestRequest restRequest = new RestRequest("139.91.183.46", "8080/elas4rdf_rest/");
         evaluator.readQueries(args[0]);
-        evaluator.readQrels("/home/kadilier/Elas4RDF-evaluate/src/main/resources/qrels-v2.txt");
+        evaluator.readQrels("/home/giorgos/Documents/Elas4RDF-evaluate/src/main/resources/qrels-v2.txt");
 
         /* perform requests & store results */
         for (String queryId : evaluator.queriesMap.keySet()) {
@@ -55,7 +55,7 @@ public class Evaluator {
 
             long q_start = System.currentTimeMillis();
 
-            String jsonResponse = restRequest.getJsonQueryResults(queryText, evaluator.datasetId, "entities", evaluator.responseSize, evaluator.aggregationPenalty, evaluator.aggregationFactor);
+            String jsonResponse = restRequest.getJsonQueryResults(queryText, "dbpedia", evaluator);
             result.setJsonResponse(jsonResponse);
             result.parseEntities();
             evaluator.resultsMap.put(queryId, result);
@@ -66,15 +66,15 @@ public class Evaluator {
             float dcg = evaluator.calculateDcg(queryId, 100);
             float ndcg = dcg / idcg;
 
-            if (idcg == 0){
+            if (idcg == 0) {
                 System.out.println("IDCG NULL : " + queryId);
-            	continue;
+                continue;
             }
 
             System.out.println("Q:" + queryId + " " + ndcg);
 
             evaluator.ndcgResMap.put(queryId, ndcg);
-            evaluator.queryTimesMap.put(queryId, q_end/1000F);
+            evaluator.queryTimesMap.put(queryId, q_end / 1000F);
 
         }
 
@@ -154,8 +154,8 @@ public class Evaluator {
         int i = 1;
 
 
-        if(qrel.getResources() == null){
-        	return 0;
+        if (qrel.getResources() == null) {
+            return 0;
         }
 
         /* sort resources (descending order) */
@@ -182,11 +182,15 @@ public class Evaluator {
         int i = 1;
         int jdg_n = 1;
         int rel_n = 1;
+        float score = 0, prev_score = 0;
 
         Result result = resultsMap.get(queryId);
         Qrel qrel = qrelsMap.get(queryId);
 
-        for (String resource : result.getResourcesRet()) {
+        Map<String, Float> resultMap = result.getResourcesRet();
+        for (String resource : resultMap.keySet()) {
+
+            score = resultMap.get(resource);
 
             if (i > resNum) {
                 break;
@@ -198,11 +202,14 @@ public class Evaluator {
                     rel_n++;
                 }
                 dcg += (Math.pow(2, jdg_i) - 1) / (Math.log(jdg_n + 1) / Math.log(2));
-//                System.out.println(resource + " : " + dcg + " jdg_i " + jdg_i + " jdg_n " + jdg_n);
-
                 jdg_n++;
             }
-            i++;
+
+            if (score != prev_score) {
+                prev_score = score;
+                i++;
+            }
+
         }
 
         return dcg;

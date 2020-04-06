@@ -6,19 +6,21 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Result {
 
     String queryId;
     String jsonResponse;
-    List<String> resourcesRet;
+    Map<String, Float> resourcesRet;
 
     private static final JSONParser parser = new JSONParser();
 
     public Result(String queryId) {
         this.queryId = queryId;
-        this.resourcesRet = new ArrayList<>();
+        this.resourcesRet = new LinkedHashMap<>();
     }
 
     public void parseEntities() throws ParseException {
@@ -29,7 +31,8 @@ public class Result {
 
         for (int i = 0; i < entities.size(); i++) {
             JSONObject resultNode = (JSONObject) entities.get(i);
-            resourcesRet.add(resultNode.get("entity").toString().replace("http://dbpedia.org/resource/", "dbpedia:"));
+            resourcesRet.put(resultNode.get("entity").toString().replace("http://dbpedia.org/resource/", "dbpedia:"),
+                    Float.parseFloat(resultNode.get("score").toString()));
         }
 
     }
@@ -38,7 +41,7 @@ public class Result {
         this.jsonResponse = jsonResponse;
     }
 
-    public List<String> getResourcesRet() {
+    public Map<String, Float> getResourcesRet() {
         return this.resourcesRet;
     }
 
