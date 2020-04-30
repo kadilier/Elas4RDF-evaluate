@@ -66,7 +66,7 @@ QALD2_tr-86	all female German chancellors
 QALD2_tr-87	wrote the book The pillars of the Earth
 QALD2_tr-89	all soccer clubs in the Premier League
 QALD2_tr-91	organizations were founded in 1950
-NEX_XER-91	Paul Auster novels
+INEX_XER-91	Paul Auster novels
 INEX_XER-94	Hybrid cars sold in Europe
 INEX_XER-95	Tom Hanks movies he plays a leading role
 INEX_XER-96	Pure object oriented programing languages
