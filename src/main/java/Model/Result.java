@@ -14,7 +14,7 @@ public class Result {
 
     String queryId;
     String jsonResponse;
-    Map<String, Float> resourcesRet;
+    Map<String, Double> resourcesRet;
 
     private static final JSONParser parser = new JSONParser();
 
@@ -32,7 +32,7 @@ public class Result {
         for (int i = 0; i < entities.size(); i++) {
             JSONObject resultNode = (JSONObject) entities.get(i);
             resourcesRet.put(resultNode.get("entity").toString().replace("http://dbpedia.org/resource/", "dbpedia:"),
-                    Float.parseFloat(resultNode.get("score").toString()));
+                    Double.parseDouble(resultNode.get("score").toString()));
         }
 
     }
@@ -41,7 +41,7 @@ public class Result {
         this.jsonResponse = jsonResponse;
     }
 
-    public Map<String, Float> getResourcesRet() {
+    public Map<String, Double> getResourcesRet() {
         return this.resourcesRet;
     }
 

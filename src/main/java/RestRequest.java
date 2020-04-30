@@ -29,7 +29,7 @@ public class RestRequest {
 
         /* Initiate a new GET request */
         HttpGet request = new HttpGet(url + "?query=" + URLEncoder.encode(query, "UTF-8") + "&id=" + datasetId + "&type=entities" + "&size=" + evaluator.responseSize + "&aggregationPenalty=" + evaluator.aggregationPenalty +
-                "&aggregationFactor=" + evaluator.aggregationFactor + "&aggregationVersion=" + evaluator.aggregationVersion);
+                "&aggregationFactor=" + evaluator.aggregationFactor + "&entMode=" + evaluator.entMode);
         request.addHeader("Content-Type", "application/json; charset=utf-8");
 
         System.out.println(request.getURI());
